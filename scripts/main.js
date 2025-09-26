@@ -79,7 +79,11 @@ class PitchDeck {
             this.goToSlide(this.currentSlide + 1);
         } else if (this.currentSlide === this.totalSlides - 1) {
             // Si on est à la dernière slide (10), aller vers la suite
-            window.location.href = 'suite.html#slide11';
+            if (window.unifiedNavigation) {
+                window.unifiedNavigation.navigateToFile('suite', 11);
+            } else {
+                window.location.href = 'suite.html#slide11';
+            }
         }
     }
 
@@ -129,14 +133,18 @@ class PitchDeck {
     }
 
     toggleFullscreen() {
-        if (!document.fullscreenElement) {
-            // Entrer en plein écran
-            document.documentElement.requestFullscreen().catch(err => {
-                console.error(`Erreur lors de l'activation du plein écran: ${err.message}`);
-            });
+        if (window.unifiedNavigation) {
+            window.unifiedNavigation.toggleFullscreen();
         } else {
-            // Sortir du plein écran
-            document.exitFullscreen();
+            if (!document.fullscreenElement) {
+                // Entrer en plein écran
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error(`Erreur lors de l'activation du plein écran: ${err.message}`);
+                });
+            } else {
+                // Sortir du plein écran
+                document.exitFullscreen();
+            }
         }
     }
 
