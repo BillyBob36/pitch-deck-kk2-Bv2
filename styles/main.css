@@ -1,0 +1,1651 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F6F6F6;
+    color: #282222;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Header transparent */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 2rem 0;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.navigation {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background: rgba(40, 34, 34, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: rgba(40, 34, 34, 0.2);
+    transform: scale(1.05);
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+.nav-btn svg {
+    color: #282222;
+}
+
+/* Conteneur principal */
+.main-content {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides-container {
+    height: 100vh;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slides */
+.slide {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+}
+
+/* Animation des dégradés - optimisée */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Dégradés nuageux optimisés - 2 radial-gradients max par slide */
+.slide:nth-child(1) {
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(250, 44, 65, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(189, 224, 252, 0.4) 0%, transparent 70%),
+        linear-gradient(135deg, #ffd8dc 0%, #e6f3ff 100%);
+}
+
+.slide:nth-child(2) {
+    background: 
+        radial-gradient(circle at 60% 20%, rgba(189, 224, 252, 0.4) 0%, transparent 55%),
+        radial-gradient(circle at 30% 70%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        linear-gradient(45deg, #e6f3ff 0%, #ffd8dc 100%);
+}
+
+.slide:nth-child(3) {
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(-45deg, #ffeef0 0%, #f0f8ff 100%);
+}
+
+.slide:nth-child(4) {
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(189, 224, 252, 0.4) 0%, transparent 55%),
+        radial-gradient(circle at 75% 70%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        linear-gradient(225deg, #f0f8ff 0%, #ffeef0 100%);
+}
+
+.slide:nth-child(5) {
+    background: 
+        radial-gradient(circle at 40% 40%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(90deg, #ffd8dc 0%, #e6f3ff 100%);
+}
+
+.slide:nth-child(6) {
+    background: 
+        radial-gradient(circle at 50% 20%, rgba(189, 224, 252, 0.4) 0%, transparent 55%),
+        radial-gradient(circle at 30% 75%, rgba(250, 44, 65, 0.3) 0%, transparent 45%),
+        linear-gradient(180deg, #e6f3ff 0%, #ffeef0 100%);
+}
+
+.slide:nth-child(7) {
+    background: 
+        radial-gradient(circle at 80% 40%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 30% 60%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(-90deg, #ffeef0 0%, #f0f8ff 100%);
+}
+
+.slide:nth-child(8) {
+    background: 
+        radial-gradient(circle at 20% 70%, rgba(189, 224, 252, 0.4) 0%, transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #f0f8ff 0%, #ffeef0 100%);
+}
+
+.slide:nth-child(9) {
+    background: 
+        radial-gradient(circle at 60% 60%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(45deg, #ffd8dc 0%, #e6f3ff 100%);
+}
+
+.slide:nth-child(10) {
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 30% 70%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%);
+}
+
+/* Optimisations mobile - désactiver animation et réduire la complexité */
+@media (max-width: 768px) {
+    .slide {
+        animation: none !important;
+        background-size: 100% 100% !important;
+        background-attachment: fixed !important;
+        will-change: auto !important;
+    }
+    
+    /* Version ultra-light pour mobile - 1 seul radial-gradient */
+    .slide:nth-child(1) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(135deg, #ffd8dc 0%, #e6f3ff 100%) !important;
+    }
+    
+    .slide:nth-child(2) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
+            linear-gradient(45deg, #e6f3ff 0%, #ffd8dc 100%) !important;
+    }
+    
+    .slide:nth-child(3) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(-45deg, #ffeef0 0%, #f0f8ff 100%) !important;
+    }
+    
+    .slide:nth-child(4) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
+            linear-gradient(225deg, #f0f8ff 0%, #ffeef0 100%) !important;
+    }
+    
+    .slide:nth-child(5) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(90deg, #ffd8dc 0%, #e6f3ff 100%) !important;
+    }
+    
+    .slide:nth-child(6) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
+            linear-gradient(180deg, #e6f3ff 0%, #ffeef0 100%) !important;
+    }
+    
+    .slide:nth-child(7) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(-90deg, #ffeef0 0%, #f0f8ff 100%) !important;
+    }
+    
+    .slide:nth-child(8) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
+            linear-gradient(135deg, #f0f8ff 0%, #ffeef0 100%) !important;
+    }
+    
+    .slide:nth-child(9) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(45deg, #ffd8dc 0%, #e6f3ff 100%) !important;
+    }
+    
+    .slide:nth-child(10) {
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
+            linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%) !important;
+    }
+}
+
+/* Réduire encore plus sur très petits écrans */
+@media (max-width: 480px) {
+    .slide {
+        background: linear-gradient(135deg, #FA2C41, #BDE0FC) !important;
+    }
+    
+    .slide:nth-child(7) {
+        background: linear-gradient(-90deg, #ffeef0 0%, #f0f8ff 100%) !important;
+    }
+    
+    .slide:nth-child(8) {
+        background: linear-gradient(135deg, #f0f8ff 0%, #ffeef0 100%) !important;
+    }
+    
+    .slide:nth-child(9) {
+        background: linear-gradient(45deg, #ffd8dc 0%, #e6f3ff 100%) !important;
+    }
+    
+    .slide:nth-child(10) {
+        background: linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%) !important;
+    }
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.slide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 624px; /* 1024 - 200*2 padding */
+    padding: 200px 0;
+}
+
+/* Images */
+.slide-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
+}
+
+/* Textes */
+.slide-text {
+    padding: 2rem;
+}
+
+.slide-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #282222;
+    margin-bottom: 2rem;
+}
+
+.slide-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #282222;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.slide-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pitch-deck {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FA2C41;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.performance {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #FA2C41;
+}
+
+/* Styles Apple Modern pour Slides 2 & 3 */
+.apple-style {
+    gap: 6rem;
+    align-items: center;
+}
+
+.apple-text {
+    padding: 2rem;
+    text-align: left;
+}
+
+.apple-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #282222;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+}
+
+.apple-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.apple-device-frame {
+    background: transparent;
+    border-radius: 30px;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
+}
+
+/* Slide 2 - Statistiques */
+.apple-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.apple-stat-card {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(189, 224, 252, 0.3);
+}
+
+.apple-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.apple-stat-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #FA2C41;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.apple-stat-unit {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #6c757d;
+    letter-spacing: 0.01em;
+}
+
+/* Slide 3 - Graphique de croissance */
+.apple-growth-chart {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+    border: 1px solid rgba(189, 224, 252, 0.3);
+}
+
+.apple-chart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.apple-chart-item:last-child {
+    margin-bottom: 0;
+}
+
+.apple-year {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #6c757d;
+    min-width: 60px;
+}
+
+.apple-bar {
+    flex: 1;
+    height: 12px;
+    background: rgba(189, 224, 252, 0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.apple-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #BDE0FC, #FA2C41);
+    border-radius: 6px;
+    transition: width 1s ease-out;
+    position: relative;
+}
+
+.apple-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.apple-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #282222;
+    min-width: 100px;
+    text-align: right;
+}
+
+.apple-trend-arrow {
+    font-size: 2rem;
+    color: #FA2C41;
+    text-align: center;
+    margin: 1rem 0;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.apple-footnote {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 500;
+}
+
+/* Responsive pour design Apple */
+@media (max-width: 1024px) {
+    .apple-style {
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .apple-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .apple-stats {
+        align-items: center;
+    }
+    
+    .apple-stat-card {
+        padding: 2rem;
+        max-width: 400px;
+    }
+    
+    .apple-stat-number {
+        font-size: 3rem;
+    }
+    
+    .apple-growth-chart {
+        padding: 2rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .apple-title {
+        font-size: 2rem;
+    }
+    
+    .apple-stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .apple-stat-unit {
+        font-size: 1.1rem;
+    }
+    
+    .apple-chart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .apple-bar {
+        width: 100%;
+    }
+    
+    .apple-value {
+        text-align: left;
+        min-width: auto;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .slide-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+        padding: 100px 0;
+    }
+    
+    .slide-title {
+        font-size: 2.5rem;
+    }
+    
+    .slide-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .slide-text {
+        padding: 1rem;
+    }
+    
+    .avatar-image {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .slide-content {
+        padding: 0 1rem;
+    }
+    
+    .slide-grid {
+        padding: 80px 0;
+        gap: 1.5rem;
+    }
+    
+    .slide-title {
+        font-size: 2rem;
+    }
+    
+    .slide-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .performance {
+        font-size: 1.5rem;
+    }
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-title {
+        font-size: 1.8rem;
+    }
+    
+    .slide-subtitle {
+        font-size: 1rem;
+    }
+    
+    .avatar-image {
+        max-height: 200px;
+    }
+    
+    .slide-grid {
+        padding: 60px 0;
+    }
+}
+
+/* Styles pour la partie 3 - Statistiques marché */
+.market-stats {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(189, 224, 252, 0.3);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.stat-year {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #FA2C41;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #282222;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #FA2C41;
+    margin-top: 0.5rem;
+}
+
+.stat-arrow {
+    font-size: 3rem;
+    color: #FA2C41;
+    font-weight: 700;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(-10px);
+    }
+    60% {
+        transform: translateX(-5px);
+    }
+}
+
+/* Styles pour la partie 4 - Comparaison */
+.full-width {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.comparison-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin: 3rem 0;
+}
+
+.comparison-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0px;
+    background: none;
+}
+
+.comparison-card.presentiel::before {
+    background: none;
+}
+
+.comparison-card.elearning::before {
+    background: none;
+}
+
+.comparison-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.comparison-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #282222;
+    margin-bottom: 1rem;
+}
+
+.price-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FA2C41;
+    margin-bottom: 0.5rem;
+}
+
+.frequency {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.pros-cons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.con {
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    background: rgba(250, 44, 65, 0.1);
+    color: #282222;
+    text-align: center;
+}
+
+/* Supprimé le VS divider - structure équilibrée sans séparateur */
+
+.key-insight {
+    background: linear-gradient(135deg, #282222, #3a3333);
+    color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin: 2.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.insight-icon {
+    font-size: 3rem;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #BDE0FC;
+    }
+    to {
+        text-shadow: 0 0 20px #FA2C41, 0 0 30px #FA2C41;
+    }
+}
+
+.insight-text p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footnote {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(40, 34, 34, 0.1);
+}
+
+.footnote p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Responsive pour les nouveaux éléments */
+@media (max-width: 1024px) {
+    .market-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .comparison-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .key-insight {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    .price-tag {
+        font-size: 1.5rem;
+    }
+    
+    .comparison-card {
+        padding: 1.5rem;
+    }
+    
+    .key-insight {
+        padding: 1.125rem;
+    }
+    
+    .insight-text p {
+        font-size: 1rem;
+    }
+    
+    /* Responsive pour les nouvelles pages */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature-item.wide {
+        grid-column: 1;
+    }
+    
+    .price-highlight {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid.compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .features-grid.compact .feature-item {
+        padding: 1.875rem;
+    }
+    
+    .features-grid.compact .feature-icon {
+        font-size: 2.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .features-grid.compact .feature-text {
+        font-size: 1.25rem;
+    }
+    
+    .offers-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .offer-card {
+        padding: 1.5rem;
+    }
+    
+    .offer-price {
+        font-size: 2.5rem;
+    }
+    
+    .sub-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.slide.active .slide-title {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.slide.active .slide-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.slide.active .slide-meta {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.slide.active .avatar-image {
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+/* Animations spécifiques pour les nouvelles slides */
+.slide.active .price-highlight {
+    animation: pulse 1s ease-out 0.2s both;
+}
+
+.slide.active .feature-subtitle {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 1.0s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(4) {
+    animation: fadeInUp 0.6s ease-out 1.2s both;
+}
+
+.slide.active .stat-item {
+    animation: countUp 0.6s ease-out 0.3s both;
+}
+
+.slide.active .stat-item:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.slide.active .stat-arrow {
+    animation: bounce 1s ease-out 0.9s both;
+}
+
+.slide.active .comparison-card {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.slide.active .comparison-card.elearning {
+    animation-delay: 0.4s;
+}
+
+/* Animation VS divider supprimée */
+
+.slide.active .key-insight {
+    animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+/* Styles pour la page 5 - Metagora Features */
+.metagora-card {
+    background: linear-gradient(135deg, #ffffff, #F6F6F6);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 2rem auto 0;
+    border: 1px solid rgba(189, 224, 252, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metagora-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.price-highlight {
+    font-family: 'Inter', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #FA2C41;
+    margin-bottom: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+.feature-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.features-list .feature-item {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-radius: 0;
+}
+
+.features-list .feature-item:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.feature-bullet {
+    color: #FA2C41;
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.features-list .feature-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    color: #282222;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Styles pour la page 6 - Offres et tarifs */
+.offers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.offer-card {
+    background: linear-gradient(135deg, #ffffff, #F6F6F6);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.offer-card.setup {
+    border-color: #BDE0FC;
+}
+
+.offer-card.subscription {
+    border-color: #FA2C41;
+}
+
+.offer-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #282222;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.offer-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FA2C41;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.offer-content {
+    font-family: 'Roboto', sans-serif;
+    color: #666;
+}
+
+.offer-content p {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.offer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.offer-content li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.offer-content li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #FA2C41;
+    font-weight: bold;
+}
+
+.offer-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.subscription-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sub-option {
+    background: rgba(250, 44, 65, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(250, 44, 65, 0.2);
+}
+
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sub-header h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #282222;
+    margin: 0;
+}
+
+.sub-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.sub-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FA2C41;
+    text-align: center;
+}
+
+/* Animations spécifiques pour la page 5 */
+.slide.active .metagora-card {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.slide.active .price-highlight {
+    animation: pulse 1s ease-out 0.4s both;
+}
+
+.slide.active .feature-subtitle {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 1.0s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 1.2s both;
+}
+
+.slide.active .features-list .feature-item:nth-child(4) {
+    animation: fadeInUp 0.6s ease-out 1.4s both;
+}
+
+/* Animations spécifiques pour la page 10 */
+.slide.active .case-item:nth-child(1) {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.slide.active .case-item:nth-child(2) {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.slide.active .features-grid.compact .feature-item:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.slide.active .features-grid.compact .feature-item:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.slide.active .features-grid.compact .feature-item:nth-child(3) {
+    animation-delay: 1.0s;
+}
+
+.slide.active .features-grid.compact .feature-item:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.slide.active .offer-card.setup {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.slide.active .offer-card.subscription {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Styles pour la page 7 - Team */
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-member {
+    flex: 0 1 350px;
+    max-width: 350px;
+}
+
+.team-member {
+    background: linear-gradient(135deg, #ffffff, #F6F6F6);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(189, 224, 252, 0.3);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.team-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #282222;
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FA2C41;
+    margin-bottom: 0.5rem;
+}
+
+.team-bio {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Styles pour la page 8 - Board */
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.board-member {
+    background: linear-gradient(135deg, #ffffff, #F6F6F6);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(250, 44, 65, 0.2);
+}
+
+.board-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.board-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.board-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #282222;
+    margin-bottom: 0.5rem;
+}
+
+.board-role {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Styles pour la page 9 - Clients */
+.clients-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    align-items: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.client-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 120px;
+    aspect-ratio: 16/9;
+    flex: 0 1 280px;
+    max-width: 280px;
+}
+
+.client-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.client-image {
+    max-width: 160px;
+    max-height: 90px;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    background: transparent;
+}
+
+/* S'assurer que les images SVG et PNG avec transparence s'affichent correctement */
+.client-logo img {
+    background: transparent !important;
+    mix-blend-mode: normal !important;
+}
+
+/* Enlever tout effet de filtre ou d'opacité par défaut */
+.client-logo:not(:hover) .client-image {
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+}
+
+/* Styles pour la page 10 - Cas Clients */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.case-item {
+    background: linear-gradient(135deg, #ffffff, #F6F6F6);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(189, 224, 252, 0.3);
+}
+
+.case-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.case-images {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    height: 200px;
+}
+
+.case-demo {
+    width: auto;
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.case-logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 92px;
+    max-height: 46px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    filter: grayscale(0.2);
+    transition: filter 0.3s ease;
+    z-index: 10;
+}
+
+.case-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #282222;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.case-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.case-stat {
+    font-weight: 600 !important;
+    color: #FA2C41 !important;
+    font-size: 1.2rem !important;
+}
+
+/* Animations pour les nouvelles pages */
+.slide.active .team-member:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.slide.active .team-member:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.slide.active .team-member:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.slide.active .team-member:nth-child(4) {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.slide.active .team-member:nth-child(5) {
+    animation: fadeInUp 0.6s ease-out 1.0s both;
+}
+
+.slide.active .board-member:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.slide.active .board-member:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.slide.active .board-member:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.slide.active .board-member:nth-child(4) {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.slide.active .board-member:nth-child(5) {
+    animation: fadeInUp 0.6s ease-out 1.0s both;
+}
+
+.slide.active .board-member:nth-child(6) {
+    animation: fadeInUp 0.6s ease-out 1.2s both;
+}
+
+.slide.active .client-logo:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.slide.active .client-logo:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.slide.active .client-logo:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.slide.active .client-logo:nth-child(4) {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.slide.active .client-logo:nth-child(5) {
+    animation: fadeInUp 0.6s ease-out 1.0s both;
+}

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metagora - Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/Logo-Metagora-noir-sur-blanc.png" alt="Metagora" class="logo-img">
+            </div>
+            <div class="navigation">
+                <button class="nav-btn" id="fullscreenBtn" aria-label="Plein écran">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                    </svg>
+                </button>
+                <button class="nav-btn" id="prevBtn" aria-label="Slide précédente">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="nav-btn" id="nextBtn" aria-label="Slide suivante">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="slides-container" id="slidesContainer">
+            <!-- Page 1 -->
+            <section class="slide active" id="slide1">
+                <div class="slide-content">
+                    <div class="slide-grid">
+                        <div class="slide-text">
+                            <h1 class="slide-title">Le client Virtuel de<br>tous les vendeurs</h1>
+                            <p class="slide-subtitle">Une infinité de clients pour transformer chaque nouveau<br>vendeur en conseiller de vente senior.</p>
+                            <div class="slide-meta">
+                                <span class="pitch-deck">Pitch Deck</span>
+                                <span class="performance">+30% de CA magasin en+</span>
+                            </div>
+                        </div>
+                        <div class="slide-image">
+                            <img src="images/les-deux-avatar-sur-une-image-stylée.png" alt="Avatars Metagora" class="avatar-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 2 - Marché Retail (Design Apple) -->
+            <section class="slide" id="slide2">
+                <div class="slide-content">
+                    <div class="slide-grid apple-style">
+                        <div class="slide-text apple-text">
+                            <h2 class="apple-title">Le marché du retail</h2>
+                            <div class="apple-stats">
+                                <div class="apple-stat-card">
+                                    <div class="apple-stat-number">25 000</div>
+                                    <div class="apple-stat-unit">Milliards €</div>
+                                </div>
+                                <div class="apple-stat-card">
+                                    <div class="apple-stat-number">400</div>
+                                    <div class="apple-stat-unit">Millions d'employés</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-image apple-image">
+                            <div class="apple-device-frame">
+                                <img src="images/avatar-pose-statistiques.png" alt="Statistiques" class="avatar-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 3 - Marché Formation (Design Apple) -->
+            <section class="slide" id="slide3">
+                <div class="slide-content">
+                    <div class="slide-grid apple-style">
+                        <div class="slide-image apple-image">
+                            <div class="apple-device-frame">
+                                <img src="images/avatar-pose-learning.png" alt="Formation" class="avatar-image">
+                            </div>
+                        </div>
+                        <div class="slide-text apple-text">
+                            <h2 class="apple-title">Le marché de la formation</h2>
+                            <div class="apple-growth-chart">
+                                <div class="apple-chart-item">
+                                    <div class="apple-year">2024</div>
+                                    <div class="apple-bar">
+                                        <div class="apple-bar-fill" style="width: 52%"></div>
+                                    </div>
+                                    <div class="apple-value">4,6 Mds €</div>
+                                </div>
+                                <div class="apple-trend-arrow">↗</div>
+                                <div class="apple-chart-item">
+                                    <div class="apple-year">2033</div>
+                                    <div class="apple-bar">
+                                        <div class="apple-bar-fill" style="width: 100%"></div>
+                                    </div>
+                                    <div class="apple-value">8,9 Mds €</div>
+                                </div>
+                            </div>
+                            <div class="apple-footnote">Croissance annuelle : +7,6%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Partie 4 -->
+            <section class="slide" id="slide4">
+                <div class="slide-content">
+                    <div class="slide-grid">
+                        <div class="slide-text full-width">
+                            <h2 class="slide-title">Comparaison des solutions</h2>
+                            <div class="comparison-container">
+                                <div class="comparison-card presentiel">
+                                    <h3>Formation présentielle</h3>
+                                    <div class="price-tag">-40 000€/an par magasin</div>
+                                    <div class="frequency">pour 2 formations/an (1)</div>
+                                    <div class="pros-cons">
+                                        <div class="con">Mise en situation efficace mais coûteuse</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="comparison-card elearning">
+                                    <h3>Formation e-learning</h3>
+                                    <div class="price-tag">-5 000€/an par magasin</div>
+                                    <div class="frequency">pour 10 formations/an (1)</div>
+                                    <div class="pros-cons">
+                                        <div class="con">Théorique et loin des enjeux opérationnels</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="key-insight">
+                                <div class="insight-icon">💡</div>
+                                <div class="insight-text">
+                                    <p>70% du contenu pédagogique est oublié sous 7 jours. Il y a 11 temps forts par an pour une enseigne.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="footnote">
+                                <p>(1) par vendeur (sur base de 10 vendeurs par boutique) cout opportunité 500K $ par demi journée > 1500$/jour > 750$ par demi journée 1500$ pour le formateur et les lieux. 2 formations par an</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 5 : Metagora le simulateur -->
+            <section class="slide" id="slide5">
+                <div class="slide-content">
+                    <div class="slide-grid">
+                        <div class="slide-text full-width">
+                            <h2 class="slide-title">Metagora : le simulateur de vente</h2>
+                            <div class="metagora-card">
+                                <div class="price-highlight">2400€/an</div>
+                                <div class="feature-subtitle">L'efficacité de la formation présentielle en continu</div>
+                                
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <div class="feature-bullet">●</div>
+                                        <div class="feature-text">En multi langues (+ de 50) sur l'ensemble des produits et personas de la marque</div>
+                                    </div>
+                                    
+                                    <div class="feature-item">
+                                        <div class="feature-bullet">●</div>
+                                        <div class="feature-text">depuis leur téléphone</div>
+                                    </div>
+                                    
+                                    <div class="feature-item">
+                                        <div class="feature-bullet">●</div>
+                                        <div class="feature-text">en moins de 5 min quand ils le souhaitent</div>
+                                    </div>
+                                    
+                                    <div class="feature-item">
+                                        <div class="feature-bullet">●</div>
+                                        <div class="feature-text">MAJ sous 48h pour répondre aux 11 temps forts de l'année.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 6 : Offres et tarifs -->
+            <section class="slide" id="slide6">
+                <div class="slide-content">
+                    <div class="slide-grid">
+                        <div class="slide-text full-width">
+                            <h2 class="slide-title">Solution</h2>
+                            
+                            <div class="offers-container">
+                                <div class="offer-card setup">
+                                    <h3>Set up</h3>
+                                    <div class="offer-price">8 000€ HT</div>
+                                    <div class="offer-content">
+                                        <p><strong>Projet :</strong></p>
+                                        <ul>
+                                            <li>Environnement 3D personnalisé pour vos équipes</li>
+                                            <li>Cadrage IA dédié sur le cas d'usage Vente</li>
+                                            <li>additionnelle Imperméabilisant</li>
+                                            <li>Durée : 3 mois</li>
+                                            <li>Nombre de collaborateurs : illimité (durant les 3 premiers mois ensuite la souscription s'applique)</li>
+                                            <li>Support : Téléphone inclus</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="offer-card subscription">
+                                    <h3>Abonnement par magasin</h3>
+                                    <div class="offer-subtitle">Tarif par magasin / par mois</div>
+                                    
+                                    <div class="subscription-options">
+                                        <div class="sub-option">
+                                            <div class="sub-header">
+                                                <h4>Licence M</h4>
+                                                <span class="sub-description">(jusqu'à 50 conseillers de vente)</span>
+                                            </div>
+                                            <div class="sub-price">875€ HT / Mois / Magasin</div>
+                                        </div>
+                                        
+                                        <div class="sub-option">
+                                            <div class="sub-header">
+                                                <h4>Licence S</h4>
+                                                <span class="sub-description">(jusqu'à 10 conseillers de vente)</span>
+                                            </div>
+                                            <div class="sub-price">200€ HT / Mois / Magasin</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 7 : Team -->
+            <section class="slide" id="slide7">
+                <div class="slide-content">
+                    <div class="slide-text full-width">
+                        <h2 class="slide-title">Geeks &lt;3 Retail</h2>
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <img src="images/team/Tony-Infantino.jpeg" alt="Tony Infantino" class="team-photo">
+                                <div class="team-info">
+                                    <h3>Tony Infantino</h3>
+                                    <p class="team-role">Education et vente.</p>
+                                    <p class="team-bio">Cofondateur. Serial entrepreneur edtech.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="team-member">
+                                <img src="images/team/Johann-Kaiser.jpeg" alt="Johann Kaiser" class="team-photo">
+                                <div class="team-info">
+                                    <h3>Johann Kaiser</h3>
+                                    <p class="team-role">3D &amp; produit.</p>
+                                    <p class="team-bio">Cofondateur 15 ans de 3D, a modifié son premier jeu vidéo à 13 ans.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="team-member">
+                                <img src="images/team/Mounji-Merzouk.jpeg" alt="Mounji Merzouk" class="team-photo">
+                                <div class="team-info">
+                                    <h3>Mounji Merzouk</h3>
+                                    <p class="team-role">AI &amp; tech.</p>
+                                    <p class="team-bio">Cofondateur,en charge de l'IA et de la technologie</p>
+                                </div>
+                            </div>
+                            
+                            <div class="team-member">
+                                <img src="images/team/Hugues-Yo.jpeg" alt="Hugues Yo" class="team-photo">
+                                <div class="team-info">
+                                    <h3>Hugues Yo</h3>
+                                    <p class="team-role">Marketing &amp; Retail</p>
+                                    <p class="team-bio">20 ans de direction de Canada Goose, North Face, Geox, Luxottica.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="team-member">
+                                <img src="images/team/Yves-Mimeran.jpeg" alt="Yves Mimeran" class="team-photo">
+                                <div class="team-info">
+                                    <h3>Yves Mimeran</h3>
+                                    <p class="team-role">Sales and Channel</p>
+                                    <p class="team-bio">CRO, 20 ans de startup tech post série B.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 8 : Board -->
+            <section class="slide" id="slide8">
+                <div class="slide-content">
+                    <div class="slide-text full-width">
+                        <h2 class="slide-title">Board</h2>
+                        <div class="board-grid">
+                            <div class="board-member">
+                                <img src="images/board/Andre-Tordjmann.jpeg" alt="André Tordjmann" class="board-photo">
+                                <div class="board-info">
+                                    <h3>André Tordjmann</h3>
+                                    <p class="board-role">Président de PROCOS PDG Du Bruit dans la Cuisine</p>
+                                </div>
+                            </div>
+                            
+                            <div class="board-member">
+                                <img src="images/board/Cedric-Sellin.jpeg" alt="Cedric Sellin" class="board-photo">
+                                <div class="board-info">
+                                    <h3>Cedric Sellin</h3>
+                                    <p class="board-role">Smartest guy we know</p>
+                                </div>
+                            </div>
+                            
+                            <div class="board-member">
+                                <img src="images/board/Lara-Rouyres.jpeg" alt="Lara Rouyres" class="board-photo">
+                                <div class="board-info">
+                                    <h3>Lara Rouyres</h3>
+                                    <p class="board-role">CEO Levia.al, Al company matching PhD &amp; firms.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="board-member">
+                                <img src="images/board/Alain-Roubach.jpeg" alt="Alain Roubach" class="board-photo">
+                                <div class="board-info">
+                                    <h3>Alain Roubach</h3>
+                                    <p class="board-role">LP &gt;5 Funds + Investor (&gt;60) Exit Leon de Bruxelles</p>
+                                </div>
+                            </div>
+                            
+                            <div class="board-member">
+                                <img src="images/board/Kamel-Zeroual.jpeg" alt="Kamel Zeroual" class="board-photo">
+                                <div class="board-info">
+                                    <h3>Kamel Zeroual</h3>
+                                    <p class="board-role">GM Cofounder Varsity (120M Carried VC)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="board-member">
+                                <img src="images/board/Frank-Heissat.jpeg" alt="Frank Heissat" class="board-photo">
+                                <div class="board-info">
+                                    <h3>Frank Heissat</h3>
+                                    <p class="board-role">Ex DG Coq Sportif. VP EMEA PUMA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 9 : Clients -->
+            <section class="slide" id="slide9">
+                <div class="slide-content">
+                    <div class="slide-text full-width">
+                        <h2 class="slide-title">Nos Clients</h2>
+                        <div class="clients-grid">
+                            <div class="client-logo">
+                                <img src="images/logos-partenairs/Amazon_logo.svg" alt="Amazon" class="client-image">
+                            </div>
+                            <div class="client-logo">
+                                <img src="images/logos-partenairs/LVMH_logo.jpg" alt="LVMH" class="client-image">
+                            </div>
+                            <div class="client-logo">
+                                <img src="images/logos-partenairs/Sony_logo.svg" alt="Sony" class="client-image">
+                            </div>
+                            <div class="client-logo">
+                                <img src="images/logos-partenairs/macif_logo.jpg" alt="Macif" class="client-image">
+                            </div>
+                            <div class="client-logo">
+                                <img src="images/logos-partenairs/BPCE_logo.jpg" alt="BPCE" class="client-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 10 : Cas Clients -->
+            <section class="slide" id="slide10">
+                <div class="slide-content">
+                    <div class="slide-text full-width">
+                        <h2 class="slide-title">Cas Clients</h2>
+                        <div class="case-grid">
+                            <div class="case-item">
+                                <div class="case-images">
+                                    <img src="images/lvmh-demo.jpg" alt="Demo LVMH" class="case-demo">
+                                    <img src="images/logo-lvmh.png" alt="LVMH" class="case-logo">
+                                </div>
+                                <div class="case-content">
+                                    <h3>Make Up Forever</h3>
+                                    <p>Lancement d'un nouveau produit maquillage, formation US, Asie et France en simultané.</p>
+                                    <p class="case-stat">400 collaborateurs.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="case-item">
+                                <div class="case-images">
+                                    <img src="images/amazon-demo.png" alt="Demo Amazon" class="case-demo">
+                                    <img src="images/logo-amazon.png" alt="Amazon" class="case-logo">
+                                </div>
+                                <div class="case-content">
+                                    <h3>Formation de directeurs</h3>
+                                    <p>"Serious Game" de gestion d'entreprise pour les directeurs de Amazon Global.</p>
+                                    <p class="case-stat">Déploiement dans 6 pays dont le Japon.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
