@@ -1,0 +1,44 @@
+/* Styles communs pour toutes les slides - Mobile scroll et alignement */
+
+/* Activer le scroll sur mobile */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+        min-height: 100vh;
+    }
+    
+    .main-content {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+        min-height: 100vh;
+    }
+    
+    .slides-container {
+        overflow-y: visible !important;
+        height: auto !important;
+        min-height: 100vh;
+    }
+    
+    .slide {
+        overflow-y: visible !important;
+        height: auto !important;
+        min-height: 100vh;
+    }
+}
+
+/* Alignement vertical du header - ne touche pas au positionnement horizontal */
+.header-content {
+    align-items: center !important;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    display: block;
+}
