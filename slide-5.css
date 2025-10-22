@@ -1,0 +1,294 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F6F6F6;
+    color: #282222;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Header transparent */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 2rem 0;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Conteneur principal */
+.main-content {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides-container {
+    height: 100vh;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slides */
+.slide {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+}
+
+/* Animation des dégradés */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Dégradé pour slide 5 */
+.slide {
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(250, 44, 65, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(189, 224, 252, 0.4) 0%, transparent 70%),
+        linear-gradient(135deg, #ffd8dc 0%, #e6f3ff 100%);
+}
+
+/* Optimisations mobile */
+@media (max-width: 768px) {
+    .slide {
+        animation: none !important;
+        background-size: 100% 100% !important;
+        background-attachment: fixed !important;
+        will-change: auto !important;
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(135deg, #ffd8dc 0%, #e6f3ff 100%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        background: linear-gradient(135deg, #FA2C41, #BDE0FC) !important;
+    }
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+/* Slide 5 - Deux statements */
+.two-statements-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+    padding: 1.5rem;
+    gap: 1.2rem;
+}
+
+.statement {
+    width: 100%;
+    max-width: 1000px;
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(250, 44, 65, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.statement:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: rgba(250, 44, 65, 0.3);
+}
+
+/* Style 1 - Fait (avec Metagora) */
+.statement-fact .statement-main {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #282222;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.highlight-stat {
+    font-family: 'Inter', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #FA2C41;
+    display: inline-block;
+    padding: 0 0.5rem;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 0 30px rgba(250, 44, 65, 0.4);
+}
+
+/* Séparateur */
+.statement-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FA2C41, transparent);
+    border-radius: 2px;
+    opacity: 0.5;
+    margin: 0.5rem 0;
+}
+
+/* Style 2 - Résultat (positif) */
+.statement-result {
+    position: relative;
+}
+
+.statement-result .statement-main {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #282222;
+    text-align: center;
+    line-height: 1.5;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .logo-img {
+        height: 32px;
+    }
+    
+    .slide-content {
+        padding: 0 1rem;
+    }
+    
+    .statement {
+        padding: 1.5rem;
+    }
+    
+    .statement-fact .statement-main {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+    
+    .statement-result .statement-main {
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+    
+    .highlight-stat {
+        font-size: 3rem;
+    }
+    
+    .two-statements-container {
+        padding: 2rem 1rem;
+        min-height: 400px;
+        gap: 1.2rem;
+    }
+    
+    .statement-divider {
+        margin: 0.3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 0;
+    }
+    
+    .logo-img {
+        height: 28px;
+    }
+    
+    .slide-content {
+        padding: 0 0.75rem;
+    }
+    
+    .statement {
+        padding: 1rem;
+    }
+    
+    .statement-fact .statement-main {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    .statement-result .statement-main {
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+    
+    .highlight-stat {
+        font-size: 2.2rem;
+        padding: 0 0.3rem;
+    }
+    
+    .two-statements-container {
+        padding: 1.5rem 0.75rem;
+        min-height: 350px;
+        gap: 1rem;
+    }
+    
+    .statement-divider {
+        width: 60px;
+        margin: 0.2rem 0;
+    }
+}

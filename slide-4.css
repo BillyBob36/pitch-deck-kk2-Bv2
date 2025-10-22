@@ -1,0 +1,487 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F6F6F6;
+    color: #282222;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Header transparent */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 2rem 0;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Conteneur principal */
+.main-content {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides-container {
+    height: 100vh;
+    position: relative;
+}
+
+/* Slides */
+.slide {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Dégradé pour slide 4 */
+.slide {
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(189, 224, 252, 0.4) 0%, transparent 55%),
+        radial-gradient(circle at 75% 70%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        linear-gradient(225deg, #f0f8ff 0%, #ffeef0 100%);
+}
+
+@media (max-width: 768px) {
+    .slide {
+        animation: none !important;
+        background-size: 100% 100% !important;
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
+            linear-gradient(225deg, #f0f8ff 0%, #ffeef0 100%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        background: linear-gradient(135deg, #FA2C41, #BDE0FC) !important;
+    }
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.slide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 624px;
+    padding: 200px 0;
+}
+
+.slide-text {
+    padding: 2rem;
+}
+
+/* Slide 4 - Deux statements */
+.two-statements-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+    padding: 1.5rem;
+    gap: 1.2rem;
+}
+
+.statement {
+    width: 100%;
+    max-width: 1000px;
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(250, 44, 65, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.statement:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: rgba(250, 44, 65, 0.3);
+}
+
+/* Style 1 - Fait (constat) */
+.statement-fact .statement-main {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #282222;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.highlight-stat {
+    font-family: 'Inter', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #FA2C41;
+    display: inline-block;
+    padding: 0 0.5rem;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 0 30px rgba(250, 44, 65, 0.4);
+}
+
+/* Séparateur */
+.statement-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FA2C41, transparent);
+    border-radius: 2px;
+    opacity: 0.5;
+    margin: 0.5rem 0;
+}
+
+/* Style 2 - Question (proposition) */
+.statement-question {
+    position: relative;
+}
+
+
+.statement-question .statement-main {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #282222;
+    text-align: center;
+    line-height: 1.5;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.slide-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #282222;
+    margin-bottom: 2rem;
+}
+
+/* Styles pour la partie 4 - Comparaison */
+.full-width {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.comparison-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin: 3rem 0;
+}
+
+.comparison-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.comparison-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.comparison-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #282222;
+    margin-bottom: 1rem;
+}
+
+.price-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FA2C41;
+    margin-bottom: 0.5rem;
+}
+
+.frequency {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.pros-cons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.con {
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    background: rgba(250, 44, 65, 0.1);
+    color: #282222;
+    text-align: center;
+}
+
+.key-insight {
+    background: linear-gradient(135deg, #282222, #3a3333);
+    color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin: 2.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.insight-icon {
+    font-size: 3rem;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #BDE0FC;
+    }
+    to {
+        text-shadow: 0 0 20px #FA2C41, 0 0 30px #FA2C41;
+    }
+}
+
+.insight-text p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footnote {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(40, 34, 34, 0.1);
+}
+
+.footnote p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .comparison-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .key-insight {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .slide-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+        padding: 100px 0;
+    }
+    
+    .slide-title {
+        font-size: 2.5rem;
+    }
+    
+    .statement-fact .statement-main {
+        font-size: 2.5rem;
+    }
+    
+    .statement-question .statement-main {
+        font-size: 2.3rem;
+    }
+    
+    .highlight-stat {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .price-tag {
+        font-size: 1.5rem;
+    }
+    
+    .comparison-card {
+        padding: 1.5rem;
+    }
+    
+    .statement {
+        padding: 1.5rem;
+    }
+    
+    .statement-fact .statement-main {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+    
+    .statement-question .statement-main {
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+    
+    .highlight-stat {
+        font-size: 3rem;
+    }
+    
+    .two-statements-container {
+        padding: 2rem 1rem;
+        min-height: 400px;
+        gap: 1.2rem;
+    }
+    
+    .statement-divider {
+        margin: 0.3rem 0;
+    }
+    
+    .logo-img {
+        height: 32px;
+    }
+    
+    .key-insight {
+        padding: 1.125rem;
+    }
+    
+    .insight-text p {
+        font-size: 1rem;
+    }
+    
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .slide-content {
+        padding: 0 1rem;
+    }
+    
+    .slide-grid {
+        padding: 80px 0;
+        gap: 1.5rem;
+    }
+    
+    .slide-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 0;
+    }
+    
+    .logo-img {
+        height: 28px;
+    }
+    
+    .statement {
+        padding: 1rem;
+    }
+    
+    .statement-fact .statement-main {
+        font-size: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    .statement-question .statement-main {
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+    
+    .highlight-stat {
+        font-size: 2.2rem;
+        padding: 0 0.3rem;
+    }
+    
+    .two-statements-container {
+        padding: 1.5rem 0.75rem;
+        min-height: 350px;
+        gap: 1rem;
+    }
+    
+    .statement-divider {
+        width: 60px;
+        margin: 0.2rem 0;
+    }
+    
+    .slide-grid {
+        padding: 60px 0 40px 0;
+    }
+    
+    .slide-content {
+        padding: 0 0.75rem;
+    }
+}

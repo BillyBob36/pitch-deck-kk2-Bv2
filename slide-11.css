@@ -1,0 +1,334 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F6F6F6;
+    color: #282222;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Header transparent */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 2rem 0;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Conteneur principal */
+.main-content {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides-container {
+    height: 100vh;
+    position: relative;
+}
+
+/* Slides */
+.slide {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Dégradé pour slide 10 */
+.slide {
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 30% 70%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%);
+}
+
+@media (max-width: 768px) {
+    .slide {
+        animation: none !important;
+        background-size: 100% 100% !important;
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
+            linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        background: linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%) !important;
+    }
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.slide-text {
+    padding: 2rem;
+}
+
+.slide-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #282222;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+/* Styles pour la page 10 - Cas Clients */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.case-item {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(250, 44, 65, 0.2);
+}
+
+.case-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: rgba(250, 44, 65, 0.3);
+}
+
+.case-images {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    height: 200px;
+}
+
+.case-demo {
+    width: auto;
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.case-logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 92px;
+    max-height: 46px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    filter: grayscale(0.2);
+    transition: filter 0.3s ease;
+    z-index: 10;
+}
+
+.case-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FA2C41;
+    margin-bottom: 1rem;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(250, 44, 65, 0.3);
+    text-align: center;
+}
+
+.case-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.case-stat {
+    font-weight: 600 !important;
+    color: #FA2C41 !important;
+    font-size: 1.2rem !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .slide-title {
+        font-size: 2.5rem;
+    }
+    
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .logo-img {
+        height: 32px;
+    }
+    
+    .slide-content {
+        padding: 0 1rem;
+    }
+    
+    .slide-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .case-grid {
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .case-item {
+        padding: 1rem;
+    }
+    
+    .case-images {
+        height: 140px;
+        margin-bottom: 1rem;
+    }
+    
+    .case-demo {
+        height: 140px;
+    }
+    
+    .case-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .case-content p {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 0;
+    }
+    
+    .logo-img {
+        height: 28px;
+    }
+    
+    .slide-content {
+        padding: 0 0.75rem;
+    }
+    
+    .slide-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .case-grid {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .case-item {
+        padding: 0.8rem;
+    }
+    
+    .case-images {
+        height: 120px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .case-demo {
+        height: 120px;
+    }
+    
+    .case-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .case-content p {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.4;
+    }
+}

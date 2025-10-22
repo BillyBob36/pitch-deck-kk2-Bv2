@@ -1,0 +1,591 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F6F6F6;
+    color: #282222;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Header transparent */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 2rem 0;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Conteneur principal */
+.main-content {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides-container {
+    height: 100vh;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slides */
+.slide {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+}
+
+/* Animation des dégradés - optimisée */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Dégradé pour slide 3 */
+.slide {
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(-45deg, #ffeef0 0%, #f0f8ff 100%);
+}
+
+/* Optimisations mobile */
+@media (max-width: 768px) {
+    .slide {
+        animation: none !important;
+        background-size: 100% 100% !important;
+        background-attachment: fixed !important;
+        will-change: auto !important;
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(-45deg, #ffeef0 0%, #f0f8ff 100%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        background: linear-gradient(135deg, #FA2C41, #BDE0FC) !important;
+    }
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.slide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 624px;
+    padding: 200px 0;
+}
+
+/* Images */
+.slide-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
+}
+
+/* Textes */
+.slide-text {
+    padding: 2rem;
+}
+
+/* Slide 3 - Statement centré */
+.centered-statement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+    padding: 2rem;
+}
+
+.statement-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #282222;
+    text-align: center;
+    max-width: 900px;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    border: 2px solid rgba(250, 44, 65, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.statement-text:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: rgba(250, 44, 65, 0.3);
+}
+
+.highlight-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #FA2C41;
+    display: inline-block;
+    padding: 0 0.3rem;
+    position: relative;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.15),
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(250, 44, 65, 0.3);
+}
+
+.highlight-number::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, rgba(250, 44, 65, 0.4), rgba(189, 224, 252, 0.5));
+    border-radius: 4px;
+    z-index: -1;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 0 10px rgba(250, 44, 65, 0.2);
+}
+
+/* Styles Apple Modern pour Slide 3 */
+.apple-style {
+    gap: 6rem;
+    align-items: center;
+}
+
+.apple-text {
+    padding: 2rem;
+    text-align: left;
+}
+
+.apple-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #282222;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+}
+
+.apple-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.apple-device-frame {
+    background: transparent;
+    border-radius: 30px;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
+}
+
+/* Design de barres verticales avec flèche courbe */
+.bar-chart-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 40px 0;
+    padding: 30px 20px;
+    background: transparent;
+    border-radius: 0;
+    position: relative;
+    height: 300px;
+}
+
+.chart-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.bar-header {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.bar-year {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #282222;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bar-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #282222;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bar-column {
+    position: relative;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar-fill {
+    width: 80px;
+    border-radius: 12px 12px 0 0;
+    position: relative;
+    animation: growBar 2s ease-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blue-bar {
+    height: 120px;
+    background: linear-gradient(180deg, 
+        #BDE0FC 0%, 
+        rgba(189, 224, 252, 0.9) 30%,
+        rgba(189, 224, 252, 0.7) 70%,
+        rgba(189, 224, 252, 0.5) 100%);
+    box-shadow: 
+        0 4px 20px rgba(189, 224, 252, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -2px 0 rgba(189, 224, 252, 0.8);
+}
+
+.green-bar {
+    height: 200px;
+    background: linear-gradient(180deg, 
+        #4CAF50 0%, 
+        rgba(76, 175, 80, 0.9) 30%,
+        rgba(76, 175, 80, 0.7) 70%,
+        rgba(76, 175, 80, 0.5) 100%);
+    box-shadow: 
+        0 4px 20px rgba(76, 175, 80, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -2px 0 rgba(76, 175, 80, 0.8);
+}
+
+.bar-shadow {
+    width: 90px;
+    height: 8px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    margin-top: 5px;
+    animation: shadowGrow 2s ease-out;
+}
+
+@keyframes growBar {
+    0% {
+        height: 0;
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes shadowGrow {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 90px;
+        opacity: 1;
+    }
+}
+
+.arrow-image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 120px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.growth-arrow-image {
+    max-width: 100%;
+    max-height: 130%;
+    object-fit: contain;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.apple-footnote {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 500;
+}
+
+/* Responsive design pour les barres */
+@media (max-width: 768px) {
+    .bar-chart-container {
+        height: 250px;
+        padding: 20px 15px;
+        margin: 20px 0;
+    }
+    
+    .bar-year {
+        font-size: 16px;
+    }
+    
+    .bar-value {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .bar-column {
+        width: 60px;
+    }
+    
+    .bar-fill {
+        width: 60px;
+    }
+    
+    .blue-bar {
+        height: 80px;
+    }
+    
+    .green-bar {
+        height: 140px;
+    }
+    
+    .arrow-image-container {
+        width: 150px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bar-chart-container {
+        height: 200px;
+        padding: 15px 10px;
+    }
+    
+    .bar-year {
+        font-size: 14px;
+    }
+    
+    .bar-value {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+    
+    .bar-column {
+        width: 50px;
+    }
+    
+    .bar-fill {
+        width: 50px;
+    }
+    
+    .blue-bar {
+        height: 60px;
+    }
+    
+    .green-bar {
+        height: 100px;
+    }
+    
+    .arrow-image-container {
+        width: 120px;
+        height: 80px;
+    }
+}
+
+/* Responsive pour design Apple */
+@media (max-width: 1024px) {
+    .apple-style {
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .apple-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .slide-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+        padding: 100px 0;
+    }
+    
+    .slide-text {
+        padding: 1rem;
+    }
+    
+    .avatar-image {
+        max-height: 300px;
+    }
+    
+    .statement-text {
+        font-size: 2.5rem;
+    }
+    
+    .highlight-number {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .apple-title {
+        font-size: 2rem;
+    }
+    
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .slide-content {
+        padding: 0 1rem;
+    }
+    
+    .slide-grid {
+        padding: 80px 0;
+        gap: 1.5rem;
+    }
+    
+    .statement-text {
+        font-size: 2rem;
+        padding: 1.5rem;
+        line-height: 1.5;
+    }
+    
+    .highlight-number {
+        font-size: 2.8rem;
+    }
+    
+    .centered-statement {
+        padding: 2rem 1rem;
+        min-height: 400px;
+    }
+    
+    .logo-img {
+        height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar-image {
+        max-height: 200px;
+    }
+    
+    .header {
+        padding: 1rem 0;
+    }
+    
+    .logo-img {
+        height: 28px;
+    }
+    
+    .statement-text {
+        font-size: 1.4rem;
+        padding: 1rem;
+        line-height: 1.4;
+    }
+    
+    .highlight-number {
+        font-size: 2rem;
+        padding: 0 0.2rem;
+    }
+    
+    .highlight-number::after {
+        height: 6px;
+    }
+    
+    .centered-statement {
+        padding: 1.5rem 0.75rem;
+        min-height: 350px;
+    }
+    
+    .slide-grid {
+        padding: 60px 0 40px 0;
+    }
+    
+    .slide-content {
+        padding: 0 0.75rem;
+    }
+}

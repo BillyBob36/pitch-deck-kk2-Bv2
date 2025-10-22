@@ -1,0 +1,306 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F6F6F6;
+    color: #282222;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Header transparent */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 2rem 0;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Conteneur principal */
+.main-content {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides-container {
+    height: 100vh;
+    position: relative;
+}
+
+/* Slides */
+.slide {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Dégradé pour slide 7 */
+.slide {
+    background: 
+        radial-gradient(circle at 80% 40%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 30% 60%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
+        linear-gradient(-90deg, #ffeef0 0%, #f0f8ff 100%);
+}
+
+@media (max-width: 768px) {
+    .slide {
+        animation: none !important;
+        background-size: 100% 100% !important;
+        background: 
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(-90deg, #ffeef0 0%, #f0f8ff 100%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        background: linear-gradient(-90deg, #ffeef0 0%, #f0f8ff 100%) !important;
+    }
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.slide-text {
+    padding: 2rem;
+}
+
+.slide-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #282222;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+/* Styles pour la page 7 - Team */
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-member {
+    flex: 0 1 350px;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(250, 44, 65, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-member:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: rgba(250, 44, 65, 0.3);
+}
+
+.team-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(250, 44, 65, 0.2);
+}
+
+.team-info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FA2C41;
+    margin-bottom: 0.4rem;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(250, 44, 65, 0.3);
+}
+
+.team-role {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FA2C41;
+    margin-bottom: 0.5rem;
+}
+
+.team-bio {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .slide-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 0;
+    }
+    
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .logo-img {
+        height: 30px;
+    }
+    
+    .slide-content {
+        padding: 0 0.8rem;
+    }
+    
+    .slide-text {
+        padding: 0.6rem;
+    }
+    
+    .slide-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .team-grid {
+        gap: 0.8rem;
+    }
+    
+    .team-member {
+        padding: 0.8rem;
+    }
+    
+    .team-info h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 0;
+    }
+    
+    .logo-img {
+        height: 28px;
+    }
+    
+    .slide-content {
+        padding: 0 0.75rem;
+    }
+    
+    .slide-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .team-grid {
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+    }
+    
+    .team-member {
+        flex: 0 1 calc(50% - 0.4rem);
+        max-width: calc(50% - 0.4rem);
+        padding: 0.8rem;
+    }
+    
+    .team-photo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .team-info h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .team-role {
+        font-size: 0.75rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .team-bio {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+}
