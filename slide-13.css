@@ -397,6 +397,10 @@ body {
     border-radius: 50%;
 }
 
+.legend-box.simsell {
+    background: rgba(189, 224, 252, 1);
+}
+
 .legend-box.arr-hors {
     background: transparent;
     border: 2px solid #282222;
@@ -464,7 +468,7 @@ body {
 }
 
 .arr-bar.arr-hors-simsell {
-    width: 33.33%;
+    width: 100%;
     background: transparent;
     border: 2px solid #282222;
     border-bottom: none;
