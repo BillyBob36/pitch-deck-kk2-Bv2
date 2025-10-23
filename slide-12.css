@@ -102,7 +102,7 @@ body {
 }
 
 .slide-content {
-    min-height: 1024px;
+    min-height: 850px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -356,7 +356,7 @@ body {
     }
     
     .slide-content {
-        padding: 0 1rem;
+        padding: 0 1rem 35px 1rem;
     }
     
     .slide-title {
@@ -502,7 +502,7 @@ body {
     }
     
     .slide-content {
-        padding: 0 0.75rem;
+        padding: 0 0.75rem 35px 0.75rem;
     }
     
     .slide-title {
