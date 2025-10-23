@@ -47,5 +47,11 @@
             </section>
         </div>
     </main>
+    <script>
+        // Détecter iPhone et ajouter une classe au body
+        if (/iPhone/i.test(navigator.userAgent) || (/iPad/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1)) {
+            document.body.classList.add('iphone-device');
+        }
+    </script>
 </body>
 </html>

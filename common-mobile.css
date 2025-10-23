@@ -42,3 +42,20 @@
 .logo-img {
     display: block;
 }
+
+/* Décalage spécifique pour iPhone */
+@media (max-width: 768px) {
+    body.iphone-device .slide-content {
+        transform: translateY(-20px);
+    }
+    
+    /* Décalage supplémentaire pour certaines slides */
+    body.iphone-device.extra-offset .slide-content {
+        transform: translateY(-40px);
+    }
+    
+    /* Décalage encore plus grand pour slide 14 */
+    body.iphone-device.extra-offset-2 .slide-content {
+        transform: translateY(-60px);
+    }
+}

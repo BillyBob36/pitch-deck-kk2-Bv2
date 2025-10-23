@@ -38,6 +38,9 @@
             z-index: 10000;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(0, 0, 0, 0.1);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
         
         .nav-button {
@@ -58,6 +61,9 @@
             justify-content: center;
             transition: all 0.2s ease;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
         
         @media (hover: hover) and (pointer: fine) {
@@ -114,6 +120,8 @@
             justify-content: center;
             transition: all 0.2s ease;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
         
         @media (hover: hover) and (pointer: fine) {
@@ -317,6 +325,16 @@
         document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
         document.addEventListener('mozfullscreenchange', updateFullscreenButton);
         document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+        
+        // Détecter iPhone et masquer le bouton fullscreen
+        function isIPhone() {
+            return /iPhone/i.test(navigator.userAgent) || 
+                   (/iPad/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+        }
+        
+        if (isIPhone()) {
+            fullscreenButton.style.display = 'none';
+        }
     </script>
 </body>
 </html>

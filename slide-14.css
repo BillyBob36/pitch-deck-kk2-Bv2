@@ -183,6 +183,11 @@ body {
     .scroll-indicator.hidden {
         opacity: 0;
     }
+    
+    /* Masquer le bouton sur iPhone */
+    body.iphone-device .scroll-indicator {
+        display: none !important;
+    }
 }
 
 @keyframes fadeOut {
