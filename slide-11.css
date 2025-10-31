@@ -51,6 +51,7 @@ body {
 .slides-container {
     height: 100vh;
     position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Slides */
@@ -72,6 +73,7 @@ body {
     transform: translateZ(0);
 }
 
+/* Animation des dégradés */
 @keyframes gradientShift {
     0% {
         background-position: 0% 50%;
@@ -84,27 +86,30 @@ body {
     }
 }
 
-/* Dégradé pour slide 10 */
+/* Dégradé pour slide 13 */
 .slide {
     background: 
-        radial-gradient(circle at 70% 30%, rgba(250, 44, 65, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 30% 70%, rgba(189, 224, 252, 0.4) 0%, transparent 60%),
-        linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%);
+        radial-gradient(circle at 35% 45%, rgba(250, 44, 65, 0.3) 0%, transparent 55%),
+        radial-gradient(circle at 65% 55%, rgba(189, 224, 252, 0.4) 0%, transparent 65%),
+        linear-gradient(135deg, #ffd8dc 0%, #e6f3ff 100%);
 }
 
+/* Optimisations mobile */
 @media (max-width: 768px) {
     .slide {
         animation: none !important;
         background-size: 100% 100% !important;
+        background-attachment: fixed !important;
+        will-change: auto !important;
         background: 
-            radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
-            linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%) !important;
+            radial-gradient(circle at 50% 50%, rgba(250, 44, 65, 0.2) 0%, transparent 70%),
+            linear-gradient(135deg, #ffd8dc 0%, #e6f3ff 100%) !important;
     }
 }
 
 @media (max-width: 480px) {
     .slide {
-        background: linear-gradient(-45deg, #e6f3ff 0%, #ffd8dc 100%) !important;
+        background: linear-gradient(135deg, #FA2C41, #BDE0FC) !important;
     }
 }
 
@@ -114,20 +119,17 @@ body {
 }
 
 .slide-content {
-    max-width: 1280px;
+    max-width: 1400px;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     margin: 0 auto;
 }
 
-.slide-text {
-    padding: 2rem;
-}
-
+/* Styles pour le titre */
 .slide-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 700;
     line-height: 1.2;
     color: #282222;
     margin-bottom: 2rem;
@@ -139,102 +141,445 @@ body {
     text-align: center;
 }
 
-/* Styles pour la page 10 - Cas Clients */
-.case-grid {
+/* Container des graphiques - 2 colonnes + cadre texte */
+.charts-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    margin-top: 3rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    align-items: start;
+    position: relative;
 }
 
-.case-item {
+/* Cartes graphiques */
+.chart-card {
     background: rgba(255, 255, 255, 0.6);
     border-radius: 20px;
     padding: 1.5rem;
+    border: 2px solid rgba(250, 44, 65, 0.2);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    border: 2px solid rgba(250, 44, 65, 0.2);
+    min-width: 0;
+    overflow: visible;
 }
 
-.case-item:hover {
+.chart-main {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.chart-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
     border-color: rgba(250, 44, 65, 0.3);
 }
 
-.case-images {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.chart-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #282222;
     margin-bottom: 1.5rem;
-    height: 200px;
+    text-align: left;
 }
 
-.case-demo {
-    width: auto;
-    max-width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.chart-content {
+    position: relative;
+    overflow: visible;
 }
 
-.case-logo {
+/* Graphique Démos & Devis */
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 300px;
+    padding: 0;
+    padding-top: 2rem;
+    gap: 0.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    overflow: visible;
+}
+
+.bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.bar-wrapper {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.demos-bar {
+    width: 100%;
+    background: rgba(189, 224, 252, 1);
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.demos-bar .bar-label {
     position: absolute;
-    top: 10px;
+    top: -25px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 92px;
-    max-height: 46px;
-    object-fit: contain;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 8px;
-    border-radius: 8px;
-    backdrop-filter: blur(5px);
-    filter: grayscale(0.2);
-    transition: filter 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4A90E2;
+}
+
+.bar-group.highlight .demos-bar {
+    background: rgba(189, 224, 252, 1);
+}
+
+.bar-group.highlight .bar-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -8px;
+    right: -8px;
+    bottom: -2px;
+    border: 2px solid #282222;
+    border-radius: 8px 8px 0 0;
+    pointer-events: none;
     z-index: 10;
 }
 
-.case-content h3 {
+.bar-group.highlight .bar-wrapper::before {
+    content: 'en cours';
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Inter', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #FA2C41;
-    margin-bottom: 1rem;
-    text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.15),
-        0 0 20px rgba(250, 44, 65, 0.3);
-    text-align: center;
+    font-size: 0.75rem;
+    color: #282222;
+    font-weight: 600;
+    white-space: nowrap;
+    z-index: 100;
 }
 
-.case-content p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
+
+.devis-point-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #282222;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.devis-point-marker .devis-label {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #282222;
+    white-space: nowrap;
+}
+
+/* Container pour les lignes de connexion */
+.chart-bars {
+    position: relative;
+}
+
+/* Style pour les lignes de connexion créées par JavaScript */
+.connection-line {
+    pointer-events: none;
+}
+
+
+.en-cours-label {
+    position: absolute;
+    top: -50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #282222;
+    font-weight: 600;
+}
+
+.devis-point {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #282222;
+    border: 2px solid white;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.devis-value {
+    position: absolute;
+    left: 20px;
+    top: -5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #282222;
+    white-space: nowrap;
+}
+
+.month-label {
+    margin-top: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 600;
+    min-height: 20px;
+}
+
+/* Légende */
+.chart-legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-line {
+    width: 20px;
+    height: 2px;
+    background: #282222;
+    position: relative;
+}
+
+.legend-line::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: #282222;
+    border-radius: 50%;
+}
+
+.legend-box {
+    width: 20px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.legend-box.demos {
+    background: rgba(189, 224, 252, 1);
+}
+
+.legend-box.devis {
+    width: 12px;
+    height: 12px;
+    background: #282222;
+    border-radius: 50%;
+}
+
+.legend-box.simsell {
+    background: rgba(189, 224, 252, 1);
+}
+
+.legend-box.arr-hors {
+    background: transparent;
+    border: 2px solid #282222;
+}
+
+.legend-box.arr-simsell {
+    background: rgba(189, 224, 252, 1);
+}
+
+/* Graphique ARR */
+.arr-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.arr-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 300px;
+    padding: 0;
+    padding-top: 2rem;
+    gap: 0.3rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: visible;
+}
+
+@media (max-width: 768px) {
+    .arr-bars {
+        gap: 0.2rem;
+    }
+}
+
+.arr-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.arr-bar-wrapper {
+    width: 100%;
+    max-width: 70px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.arr-bar {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.arr-bar.simsell {
+    background: rgba(189, 224, 252, 1);
+}
+
+.arr-bar.arr-hors-simsell {
+    width: 100%;
+    background: transparent;
+    border: 2px solid #282222;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.arr-group.highlight .arr-bar.simsell {
+    background: rgba(189, 224, 252, 1);
+}
+
+/* Cadre bleu unique autour des 3 dernières barres ARR */
+.arr-bars::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    right: -8px;
+    bottom: 27px;
+    border: 2px solid #4A90E2;
+    border-bottom: 2px solid #4A90E2;
+    border-radius: 8px 8px 0 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Flèche SVG bleue du cadre ARR vers le cadre de texte */
+.arr-content .arrow-svg {
+    position: absolute;
+    top: calc(20%);
+    left: 75%;
+    width: 180px;
+    height: 43px;
+    z-index: 9999;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.arr-value {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4A90E2;
+    white-space: nowrap;
+}
+
+.highlight-value {
+    color: #4A90E2;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.arr-label {
+    margin-top: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 600;
+    min-height: 20px;
+}
+
+
+/* Cadre de note - à droite en position absolue */
+.chart-note {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.8rem 0.5rem;
+    height: auto;
+    min-height: 200px;
+    border-color: #4A90E2 !important;
+    width: 180px;
+    position: absolute;
+    right: -200px;
+    top: 0;
+    z-index: 1;
+}
+
+.note-content {
+    width: 100%;
+}
+
+.note-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
     color: #666;
     line-height: 1.6;
-    margin-bottom: 1rem;
-    text-align: center;
+    margin-bottom: 0.8rem;
 }
 
-.case-stat {
-    font-weight: 600 !important;
-    color: #FA2C41 !important;
-    font-size: 1.2rem !important;
+.note-content p:last-child {
+    margin-bottom: 0;
 }
 
-/* Responsive */
+.highlight-text {
+    color: #FA2C41;
+    font-weight: 600;
+}
+
+/* Responsive - Tablette */
 @media (max-width: 1024px) {
     .slide-title {
         font-size: 2.5rem;
-    }
-    
-    .case-grid {
-        grid-template-columns: 1fr;
     }
 }
 
@@ -248,40 +593,80 @@ body {
     }
     
     .slide-content {
-        padding: 0px 1rem 30px 1rem;
+        padding: 80px 1rem 180px 1rem;
+        min-height: auto;
     }
     
     .slide-title {
-        font-size: 1.7rem;
-        margin-bottom: 1.7rem;
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
     }
     
-    .case-grid {
-        gap: 1.275rem;
-        margin-top: 1.7rem;
+    .charts-container {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        max-width: 100%;
+        padding: 0 1rem;
     }
     
-    .case-item {
-        padding: 0.85rem;
+    .chart-card {
+        padding: 0.8rem;
     }
     
-    .case-images {
-        height: 119px;
-        margin-bottom: 0.85rem;
+    .chart-note {
+        position: relative;
+        right: auto;
+        width: 100%;
+        padding: 0.6rem 0.5rem;
+        margin-top: 0.4rem;
+        z-index: 1;
+        min-height: auto;
     }
     
-    .case-demo {
-        height: 119px;
-    }
-    
-    .case-content h3 {
-        font-size: 1.105rem;
-        margin-bottom: 0.68rem;
-    }
-    
-    .case-content p {
+    .note-content p {
         font-size: 0.85rem;
-        margin-bottom: 0.68rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.35;
+    }
+    
+    .chart-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .chart-bars,
+    .arr-bars {
+        height: 180px;
+        padding-top: 1rem;
+    }
+    
+    .arr-content .arrow-svg {
+        display: none;
+    }
+    
+    .bar-group.highlight .bar-wrapper::before {
+        font-size: 0.65rem;
+        top: -45px;
+    }
+    
+    .bar-wrapper {
+        width: 50px;
+    }
+    
+    .arr-bar-wrapper {
+        width: 50px;
+        max-width: 50px;
+    }
+    
+    .chart-legend {
+        margin-top: 0.8rem;
     }
 }
 
@@ -295,40 +680,125 @@ body {
     }
     
     .slide-content {
-        padding: 0px 0.75rem 30px 0.75rem;
+        padding: 80px 0.75rem 180px 0.75rem;
+        min-height: auto;
     }
     
     .slide-title {
-        font-size: 1.36rem;
-        margin-bottom: 1.275rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
     }
     
-    .case-grid {
-        gap: 0.85rem;
-        margin-top: 1.275rem;
+    .charts-container {
+        gap: 0.6rem;
     }
     
-    .case-item {
-        padding: 0.68rem;
+    .chart-card {
+        padding: 0.6rem;
     }
     
-    .case-images {
-        height: 102px;
-        margin-bottom: 0.68rem;
+    .chart-title {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
     }
     
-    .case-demo {
-        height: 102px;
+    .chart-bars,
+    .arr-bars {
+        height: 160px;
+        padding-top: 1rem;
     }
     
-    .case-content h3 {
-        font-size: 1.02rem;
-        margin-bottom: 0.51rem;
+    .bar-wrapper {
+        width: 35px;
     }
     
-    .case-content p {
-        font-size: 0.765rem;
-        margin-bottom: 0.51rem;
+    .devis-point-marker {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .bar-label {
+        font-size: 0.85rem;
+        top: -20px;
+    }
+    
+    .devis-point-marker .devis-label {
+        font-size: 0.75rem;
+        top: -18px;
+    }
+    
+    .en-cours-label {
+        font-size: 0.65rem;
+        top: -40px;
+    }
+    
+    .devis-point {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .devis-value {
+        font-size: 0.75rem;
+        left: 15px;
+    }
+    
+    .month-label {
+        font-size: 0.7rem;
+    }
+    
+    .chart-legend {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+    
+    .arr-bar-wrapper {
+        width: 40px;
+        max-width: 40px;
+    }
+    
+    .arr-value {
+        font-size: 0.85rem;
+        top: -20px;
+    }
+    
+    .highlight-value {
+        font-size: 0.9rem;
+    }
+    
+    .arr-label {
+        font-size: 0.75rem;
+    }
+    
+    .note-content p {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
         line-height: 1.3;
+    }
+    
+    .chart-note {
+        padding: 0.6rem 0.5rem;
+        margin-top: 0.4rem;
+    }
+    
+    .chart-legend {
+        margin-top: 0.6rem;
+    }
+    
+    .arr-bars::after {
+        top: -25px;
+        bottom: 25px;
+    }
+    
+    .bar-group.highlight .bar-wrapper::before {
+        font-size: 0.6rem;
+        top: -45px;
+    }
+    
+    .bar-group.highlight .bar-wrapper::after {
+        top: -25px;
     }
 }

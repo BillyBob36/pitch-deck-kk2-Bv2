@@ -21,33 +21,180 @@
 
     <main class="main-content">
         <div class="slides-container" id="slidesContainer">
-            <!-- Page 10 : Cas Clients -->
-            <section class="slide active" id="slide10">
+            <!-- Page 13 -->
+            <section class="slide active" id="slide13">
                 <div class="slide-content">
                     <div class="slide-text full-width">
-                        <h2 class="slide-title">Nos réalisations</h2>
-                        <div class="case-grid">
-                            <div class="case-item">
-                                <div class="case-images">
-                                    <img src="images/lvmh-demo.jpg" alt="Demo LVMH" class="case-demo">
-                                    <img src="images/logo-lvmh.png" alt="LVMH" class="case-logo">
-                                </div>
-                                <div class="case-content">
-                                    <h3>Make Up Forever</h3>
-                                    <p>Lancement d'un nouveau produit maquillage, formation US, Asie et France en simultané.</p>
-                                    <p class="case-stat">400 collaborateurs.</p>
+                        <h2 class="slide-title">1er client signé pour Simsell le 15/10/25</h2>
+                        
+                        <div class="charts-container">
+                            <!-- Graphique 1 : Démos & Devis -->
+                                <div class="chart-card chart-main">
+                                <h3 class="chart-title">DEMOS & DEVIS</h3>
+                                <div class="chart-content">
+                                    <div class="chart-bars">
+                                        <div class="bar-group">
+                                            <div class="bar-wrapper">
+                                                <div class="bar demos-bar" style="height: 0%;">
+                                                    <div class="bar-label demos-label">0</div>
+                                                </div>
+                                                <div class="bar devis-bar" style="height: 0%;"></div>
+                                            </div>
+                                            <div class="month-label">06/25</div>
+                                        </div>
+                                        
+                                        <div class="bar-group">
+                                            <div class="bar-wrapper">
+                                                <div class="bar demos-bar" style="height: 7.7%;">
+                                                    <div class="bar-label demos-label">2</div>
+                                                </div>
+                                                <div class="bar devis-bar" style="height: 0%;"></div>
+                                            </div>
+                                            <div class="month-label">07/25</div>
+                                        </div>
+                                        
+                                        <div class="bar-group">
+                                            <div class="bar-wrapper">
+                                                <div class="bar demos-bar" style="height: 19.2%;">
+                                                    <div class="bar-label demos-label">5</div>
+                                                </div>
+                                                <div class="devis-point-marker" id="devis-point-0" style="bottom: 1%;">
+                                                    <div class="devis-label">0</div>
+                                                </div>
+                                            </div>
+                                            <div class="month-label">08/25</div>
+                                        </div>
+                                        
+                                        <div class="bar-group">
+                                            <div class="bar-wrapper">
+                                                <div class="bar demos-bar" style="height: 38.5%;">
+                                                    <div class="bar-label demos-label">10</div>
+                                                </div>
+                                                <div class="devis-point-marker" id="devis-point-3" style="bottom: 10%;">
+                                                    <div class="devis-label">3</div>
+                                                </div>
+                                            </div>
+                                            <div class="month-label">09/25</div>
+                                        </div>
+                                        
+                                        <div class="bar-group highlight">
+                                            <div class="bar-wrapper">
+                                                <div class="bar demos-bar" style="height: 100%;">
+                                                    <div class="bar-label demos-label">26</div>
+                                                </div>
+                                                <div class="devis-point-marker" id="devis-point-6" style="bottom: 50%;">
+                                                    <div class="devis-label">6</div>
+                                                </div>
+                                            </div>
+                                            <div class="month-label">20/10/25</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chart-legend">
+                                        <div class="legend-item">
+                                            <div class="legend-box devis"></div>
+                                            <span>Devis</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-box demos"></div>
+                                            <span>Démos</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="case-item">
-                                <div class="case-images">
-                                    <img src="images/amazon-demo.png" alt="Demo Amazon" class="case-demo">
-                                    <img src="images/logo-amazon.png" alt="Amazon" class="case-logo">
+                            <!-- Graphique 2 : ARR -->
+                            <div class="chart-card chart-main">
+                                <h3 class="chart-title">ARR (K€)</h3>
+                                <div class="chart-content arr-content">
+                                    <svg class="arrow-svg" viewBox="0 0 200 48">
+                                        <path d="M 2 10 L 160 10 L 160 2 L 198 24 L 160 46 L 160 38 L 2 38 L 2 10 Z" 
+                                              fill="rgba(255, 255, 255, 1)" 
+                                              stroke="#4A90E2" 
+                                              stroke-width="2"
+                                              stroke-linejoin="miter"/>
+                                    </svg>
+                                    <div class="arr-bars">
+                                        <div class="arr-group">
+                                            <div class="arr-bar-wrapper">
+                                                <div class="arr-bar simsell" style="height: 10%;">
+                                                    <div class="arr-value">100</div>
+                                                </div>
+                                                <div class="arr-bar arr-hors-simsell" style="height: 9%;"></div>
+                                            </div>
+                                            <div class="arr-label">Q3 25</div>
+                                        </div>
+                                        
+                                        <div class="arr-group">
+                                            <div class="arr-bar-wrapper">
+                                                <div class="arr-bar simsell" style="height: 15%;">
+                                                    <div class="arr-value">150</div>
+                                                </div>
+                                                <div class="arr-bar arr-hors-simsell" style="height: 9%;"></div>
+                                            </div>
+                                            <div class="arr-label">Q4 25</div>
+                                        </div>
+                                        
+                                        <div class="arr-group">
+                                            <div class="arr-bar-wrapper">
+                                                <div class="arr-bar simsell" style="height: 20%;">
+                                                    <div class="arr-value">200</div>
+                                                </div>
+                                                <div class="arr-bar arr-hors-simsell" style="height: 9%;"></div>
+                                            </div>
+                                            <div class="arr-label">Q1 26</div>
+                                        </div>
+                                        
+                                        <div class="arr-group">
+                                            <div class="arr-bar-wrapper">
+                                                <div class="arr-bar simsell" style="height: 30%;">
+                                                    <div class="arr-value">300</div>
+                                                </div>
+                                                <div class="arr-bar arr-hors-simsell" style="height: 9%;"></div>
+                                            </div>
+                                            <div class="arr-label">Q2 26</div>
+                                        </div>
+                                        
+                                        <div class="arr-group">
+                                            <div class="arr-bar-wrapper">
+                                                <div class="arr-bar simsell" style="height: 60%;">
+                                                    <div class="arr-value">600</div>
+                                                </div>
+                                                <div class="arr-bar arr-hors-simsell" style="height: 9%;"></div>
+                                            </div>
+                                            <div class="arr-label">Q3 26</div>
+                                        </div>
+                                        
+                                        <div class="arr-group highlight">
+                                            <div class="arr-bar-wrapper">
+                                                <div class="arr-bar simsell" style="height: 100%;">
+                                                    <div class="arr-value highlight-value">1M €ARR</div>
+                                                </div>
+                                                <div class="arr-bar arr-hors-simsell" style="height: 9%;"></div>
+                                            </div>
+                                            <div class="arr-label">Q4 26</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="chart-legend">
+                                        <div class="legend-item">
+                                            <div class="legend-box simsell"></div>
+                                            <span>ARR Simsell</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-box arr-hors"></div>
+                                            <span>ARR hors Simsell</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="case-content">
-                                    <h3>Formation de directeurs</h3>
-                                    <p>"Serious Game" de gestion d'entreprise pour les directeurs de Amazon Global.</p>
-                                    <p class="case-stat">Déploiement dans 6 pays dont le Japon.</p>
+                            </div>
+                            
+                            <!-- Cadre 3 : Note explicative -->
+                            <div class="chart-card chart-note">
+                                <div class="note-content">
+                                    <p>Scaling des clients de l'offre 3 mois illimitée à l'offre d'abonnement par magasins.</p>
+                                    <p>Hypothèses : passage à 50 magasins en abonnement classique taille S.</p>
+                                    <p class="highlight-text">+ acquisition accélérée par le moutonnage du retail.</p>
                                 </div>
                             </div>
                         </div>
@@ -56,11 +203,69 @@
             </section>
         </div>
     </main>
+    
     <script>
-        // Détecter iPhone et ajouter une classe au body
-        if (/iPhone/i.test(navigator.userAgent) || (/iPad/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1)) {
-            document.body.classList.add('iphone-device', 'extra-offset');
+        // Fonction pour tracer une ligne entre deux éléments
+        function drawLineBetweenElements(element1, element2, container) {
+            const rect1 = element1.getBoundingClientRect();
+            const rect2 = element2.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            
+            // Calculer les centres des éléments
+            const x1 = rect1.left + rect1.width / 2 - containerRect.left;
+            const y1 = rect1.top + rect1.height / 2 - containerRect.top;
+            const x2 = rect2.left + rect2.width / 2 - containerRect.left;
+            const y2 = rect2.top + rect2.height / 2 - containerRect.top;
+            
+            // Calculer la longueur et l'angle
+            const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+            
+            // Créer la ligne
+            const line = document.createElement('div');
+            line.className = 'connection-line';
+            line.style.position = 'absolute';
+            line.style.left = x1 + 'px';
+            line.style.top = y1 + 'px';
+            line.style.width = length + 'px';
+            line.style.height = '2px';
+            line.style.backgroundColor = '#282222';
+            line.style.transformOrigin = '0 0';
+            line.style.transform = `rotate(${angle}deg)`;
+            line.style.zIndex = '5';
+            
+            container.appendChild(line);
         }
+        
+        // Attendre que le DOM soit chargé
+        window.addEventListener('load', function() {
+            const point0 = document.getElementById('devis-point-0');
+            const point3 = document.getElementById('devis-point-3');
+            const point6 = document.getElementById('devis-point-6');
+            const container = document.querySelector('.chart-bars');
+            
+            if (point0 && point3 && point6 && container) {
+                // Tracer les lignes
+                drawLineBetweenElements(point0, point3, container);
+                drawLineBetweenElements(point3, point6, container);
+            }
+        });
+        
+        // Redessiner les lignes lors du redimensionnement
+        window.addEventListener('resize', function() {
+            const lines = document.querySelectorAll('.connection-line');
+            lines.forEach(line => line.remove());
+            
+            const point0 = document.getElementById('devis-point-0');
+            const point3 = document.getElementById('devis-point-3');
+            const point6 = document.getElementById('devis-point-6');
+            const container = document.querySelector('.chart-bars');
+            
+            if (point0 && point3 && point6 && container) {
+                drawLineBetweenElements(point0, point3, container);
+                drawLineBetweenElements(point3, point6, container);
+            }
+        });
     </script>
 </body>
 </html>
