@@ -21,63 +21,30 @@
 
     <main class="main-content">
         <div class="slides-container" id="slidesContainer">
-            <!-- Page 13 - Fundraising -->
-            <section class="slide active" id="slide13">
+            <!-- Page 15 - Merci -->
+            <section class="slide active" id="slide15">
                 <div class="slide-content">
-                    <div class="slide-text full-width">
-                        <h2 class="slide-title">300K Fundraising</h2>
-                        <p class="slide-subtitle">BSA actif, <strong style="color: #FA2C41; font-weight: 700;">50 K€</strong> investis au 08/25. Si <strong style="color: #FA2C41; font-weight: 700;">300 K€</strong> sont investis avant le 11/25 : conversion en parts à une valorisation de <strong style="color: #FA2C41; font-weight: 700;">3,65 M€</strong>.</p>
-                        
-                        <div class="fundraising-container">
-                            <div class="fundraising-block">
-                                <h3 class="block-title">Marketing & Sales — 150 000 €</h3>
-                                <div class="block-content">
-                                    <div class="fundraising-item">
-                                        <h4>SDR Team (focus France)</h4>
-                                        <p>pour le déploiement FR + UK + US simultané.</p>
-                                    </div>
-                                    
-                                    <div class="fundraising-item">
-                                        <h4>Salons Retail UK / FR</h4>
-                                        <p>dédiés au retail + intégration dans des clubs et événements retail.</p>
-                                    </div>
-                                    
-                                    <div class="fundraising-item">
-                                        <h4>Création du Club Metagora</h4>
-                                        <p>dédié aux décideurs du retail.</p>
-                                    </div>
-                                    
-                                    <div class="fundraising-item">
-                                        <h4>Activation Growth</h4>
-                                        <p>LinkedIn + Référencement GEO pour un rank 1 avec suggestions GenAI.</p>
-                                    </div>
-                                </div>
+                    <div class="slide-grid thank-you-grid">
+                        <div class="thank-you-left">
+                            <h2 class="thank-you-title">Merci pour<br>Votre Confiance</h2>
+                            <p class="thank-you-subtitle">Restons en contact !</p>
+                            <div class="qr-code-container">
+                                <img src="images/qr-code.png" alt="QR Code" class="qr-code-image">
                             </div>
-                            
-                            <div class="fundraising-block">
-                                <h3 class="block-title">Développement — 150 000 € (Q1 2026)</h3>
-                                <div class="block-content">
-                                    <div class="fundraising-item">
-                                        <h4>Génération de base d'avatars</h4>
-                                        <p>et de vêtements pour les besoins premium / luxe.</p>
-                                    </div>
-                                    
-                                    <div class="fundraising-item">
-                                        <h4>Développement du CRM</h4>
-                                        <p>le client intègre lui-même ses produits et personas et génère des liens à la volée.</p>
-                                    </div>
-                                    
-                                    <div class="fundraising-item">
-                                        <h4>Déclinaison du use case 1-to-1</h4>
-                                        <p>pour entraîner les équipes sales & managers.</p>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="thank-you-right">
+                            <img src="images/une-equipe-pratique-sur-ordi.png" alt="Équipe Metagora" class="thank-you-team-image">
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
+    <script>
+        // Détecter iPhone et ajouter une classe au body
+        if (/iPhone/i.test(navigator.userAgent) || (/iPad/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1)) {
+            document.body.classList.add('iphone-device', 'extra-offset');
+        }
+    </script>
 </body>
 </html>

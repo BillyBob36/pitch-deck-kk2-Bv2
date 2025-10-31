@@ -84,12 +84,12 @@ body {
     }
 }
 
-/* Dégradé pour slide 13 */
+/* Dégradé pour slide 15 */
 .slide {
     background: 
-        radial-gradient(circle at 30% 70%, rgba(189, 224, 252, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(250, 44, 65, 0.2) 0%, transparent 50%),
-        linear-gradient(135deg, #F6F6F6 0%, #e8e8e8 100%);
+        radial-gradient(circle at 60% 40%, rgba(189, 224, 252, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 30% 70%, rgba(250, 44, 65, 0.3) 0%, transparent 60%),
+        linear-gradient(45deg, #e6f3ff 0%, #ffd8dc 100%);
 }
 
 @media (max-width: 768px) {
@@ -98,13 +98,13 @@ body {
         background-size: 100% 100% !important;
         background: 
             radial-gradient(circle at 50% 50%, rgba(189, 224, 252, 0.2) 0%, transparent 70%),
-            linear-gradient(135deg, #F6F6F6 0%, #e8e8e8 100%) !important;
+            linear-gradient(135deg, #e6f3ff 0%, #ffd8dc 100%) !important;
     }
 }
 
 @media (max-width: 480px) {
     .slide {
-        background: linear-gradient(135deg, #F6F6F6 0%, #e8e8e8 100%) !important;
+        background: linear-gradient(135deg, #e6f3ff 0%, #ffd8dc 100%) !important;
     }
 }
 
@@ -114,225 +114,157 @@ body {
 }
 
 .slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
     max-width: 1280px;
     width: 100%;
-    padding: 0 1.5rem;
     margin: 0 auto;
 }
 
-.slide-text {
-    padding: 1.5rem;
+.slide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 624px;
+    padding: 200px 0;
 }
 
-.slide-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #282222;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    line-height: 1.1;
+/* Styles pour la slide 15 - Merci */
+.thank-you-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 80px;
+    min-height: auto;
 }
 
-.slide-subtitle {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #282222;
-    text-align: center;
-    margin-bottom: 1.2rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.4;
-}
-
-.full-width {
-    grid-column: 1 / -1;
-    text-align: center;
-}
-
-/* Styles pour la slide 13 - Fundraising */
-.fundraising-container {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: stretch;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.fundraising-block {
-    flex: 1;
-    background: #F6F6F6;
-    border-radius: 15px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.fundraising-block:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
-}
-
-.block-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #282222;
-    text-align: center;
-    margin-bottom: 1.2rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 2px solid;
-}
-
-.fundraising-block:nth-child(1) .block-title {
-    color: #1a365d;
-    border-bottom-color: #BDE0FC;
-}
-
-.fundraising-block:nth-child(2) .block-title {
-    color: #c41e3a;
-    border-bottom-color: #FA2C41;
-}
-
-.block-content {
+.thank-you-left {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
 }
 
-.fundraising-item {
-    border-radius: 10px;
-    padding: 0.8rem;
-    transition: transform 0.2s ease;
-    margin-bottom: 0.8rem;
-}
-
-.fundraising-block:nth-child(1) .fundraising-item {
-    background: rgba(189, 224, 252, 0.25);
-}
-
-.fundraising-block:nth-child(2) .fundraising-item {
-    background: rgba(250, 44, 65, 0.2);
-}
-
-.fundraising-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.fundraising-item h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
+.thank-you-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
     font-weight: 600;
     color: #282222;
-    margin-bottom: 0.25rem;
-}
-
-.fundraising-item p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.85rem;
-    color: #666;
-    line-height: 1.35;
+    line-height: 1.1;
     margin: 0;
 }
 
-/* Responsive pour la slide 13 */
+.thank-you-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #FA2C41;
+    margin: 0;
+}
+
+.qr-code-container {
+    margin-top: 1.5rem;
+}
+
+.qr-code-image {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thank-you-team-image {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+}
+
+/* Responsive pour la slide 15 */
 @media (max-width: 1024px) {
-    .slide-title {
-        font-size: 2.5rem;
-        margin-bottom: 0.4rem;
+    .thank-you-grid {
+        gap: 3rem;
+        padding: 0 60px;
     }
     
-    .slide-subtitle {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
+    .thank-you-title {
+        font-size: 3rem;
     }
     
-    .fundraising-container {
-        gap: 1.5rem;
-        padding: 0 1rem;
+    .thank-you-subtitle {
+        font-size: 1.5rem;
     }
     
-    .fundraising-block {
-        padding: 1.5rem;
-    }
-    
-    .block-title {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        padding-bottom: 0.6rem;
+    .qr-code-image {
+        width: 180px;
+        height: 180px;
     }
 }
 
 @media (max-width: 768px) {
     .header {
-        padding: 0.8rem 0;
+        padding: 1rem 0;
     }
     
-    .slide-title {
-        font-size: 1.4rem;
-        margin-bottom: 0.6rem;
+    .thank-you-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+        text-align: center;
+        min-height: auto;
     }
     
-    .slide-subtitle {
-        font-size: 0.85rem;
-        margin-bottom: 0.8rem;
-        padding: 0 0.5rem;
-        line-height: 1.4;
-    }
-    
-    .slide-text {
-        padding: 70px 1rem 160px 1rem;
-    }
-    
-    .fundraising-container {
-        flex-direction: column;
-        gap: 0.6rem;
-        padding: 0;
-    }
-    
-    .fundraising-block {
-        padding: 0.8rem;
-    }
-    
-    .block-title {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-        padding-bottom: 0.5rem;
-    }
-    
-    .block-content {
+    .thank-you-left {
+        align-items: center;
+        order: 2;
         gap: 0.6rem;
     }
     
-    .fundraising-item {
-        padding: 0.6rem;
-        margin-bottom: 0.5rem;
+    .thank-you-right {
+        order: 1;
     }
     
-    .fundraising-item:last-child {
-        margin-bottom: 0;
+    .thank-you-title {
+        font-size: 2rem;
     }
     
-    .fundraising-item h4 {
-        font-size: 0.9rem;
-        margin-bottom: 0.2rem;
+    .thank-you-subtitle {
+        font-size: 1.2rem;
     }
     
-    .fundraising-item p {
-        font-size: 0.8rem;
-        line-height: 1.3;
+    .qr-code-container {
+        margin-top: 1rem;
+    }
+    
+    .qr-code-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .thank-you-team-image {
+        max-width: 350px;
     }
     
     .header-content {
         padding: 0 1rem;
-    }
-    
-    .slide-content {
-        padding: 0 0.8rem;
     }
 }
 
@@ -345,63 +277,33 @@ body {
         height: 28px;
     }
     
-    .slide-title {
-        font-size: 1.3rem;
-        margin-bottom: 0.4rem;
+    .thank-you-grid {
+        padding: 0 0.8rem;
+        gap: 1.5rem;
     }
     
-    .slide-subtitle {
-        font-size: 0.75rem;
-        margin-bottom: 0.6rem;
-        line-height: 1.3;
+    .thank-you-left {
+        gap: 0.5rem;
     }
     
-    .slide-text {
-        padding: 70px 0.8rem 160px 0.8rem;
+    .thank-you-title {
+        font-size: 1.6rem;
     }
     
-    .slide-content {
-        padding: 0 0.6rem;
+    .thank-you-subtitle {
+        font-size: 1rem;
     }
     
-    .fundraising-container {
-        gap: 0.6rem;
+    .qr-code-container {
+        margin-top: 0.8rem;
     }
     
-    .fundraising-block {
-        padding: 0.8rem;
+    .qr-code-image {
+        width: 120px;
+        height: 120px;
     }
     
-    .block-title {
-        font-size: 0.95rem;
-        margin-bottom: 0.6rem;
-        padding-bottom: 0.4rem;
-    }
-    
-    .fundraising-item {
-        padding: 0.6rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .fundraising-item h4 {
-        font-size: 0.85rem;
-        margin-bottom: 0.15rem;
-    }
-    
-    .fundraising-item p {
-        font-size: 0.75rem;
-        line-height: 1.25;
-    }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .thank-you-team-image {
+        max-width: 280px;
     }
 }
