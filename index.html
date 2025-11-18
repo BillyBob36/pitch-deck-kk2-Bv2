@@ -174,41 +174,43 @@
 <body>
     <button class="nav-button nav-button-left" id="prevButton" onclick="previousSlide()">←</button>
     <button class="nav-button nav-button-right" id="nextButton" onclick="nextSlide()">→</button>
-    <div class="slide-counter" id="slideCounter">1 / 14</div>
+    <div class="slide-counter" id="slideCounter">1 / 6</div>
     <button class="fullscreen-button" id="fullscreenButton" onclick="toggleFullscreen()">⛶</button>
     
     <iframe id="slideFrame" src="slide-1.html"></iframe>
 
     <script>
-        let currentSlide = 1;
-        const totalSlides = 14;
+        // Slides actives : 1, 2, 3, 4, 5 et 14 (conclusion)
+        const activeSlides = [1, 2, 3, 4, 5, 14];
+        let currentIndex = 0; // Index dans le tableau activeSlides
         const slideFrame = document.getElementById('slideFrame');
         const slideCounter = document.getElementById('slideCounter');
         const prevButton = document.getElementById('prevButton');
         const nextButton = document.getElementById('nextButton');
         
         function updateSlide() {
+            const currentSlide = activeSlides[currentIndex];
             slideFrame.src = `slide-${currentSlide}.html`;
-            slideCounter.textContent = `${currentSlide} / ${totalSlides}`;
+            slideCounter.textContent = `${currentIndex + 1} / ${activeSlides.length}`;
             
             // Mettre à jour l'état des boutons
-            prevButton.disabled = currentSlide === 1;
-            nextButton.disabled = currentSlide === totalSlides;
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex === activeSlides.length - 1;
             
             // Sauvegarder la position actuelle dans l'URL
             window.history.replaceState({slide: currentSlide}, '', `?slide=${currentSlide}`);
         }
         
         function nextSlide() {
-            if (currentSlide < totalSlides) {
-                currentSlide++;
+            if (currentIndex < activeSlides.length - 1) {
+                currentIndex++;
                 updateSlide();
             }
         }
         
         function previousSlide() {
-            if (currentSlide > 1) {
-                currentSlide--;
+            if (currentIndex > 0) {
+                currentIndex--;
                 updateSlide();
             }
         }
@@ -223,11 +225,11 @@
                 previousSlide();
             } else if (event.key === 'Home') {
                 event.preventDefault();
-                currentSlide = 1;
+                currentIndex = 0;
                 updateSlide();
             } else if (event.key === 'End') {
                 event.preventDefault();
-                currentSlide = totalSlides;
+                currentIndex = activeSlides.length - 1;
                 updateSlide();
             }
         });
@@ -260,8 +262,9 @@
         const slideParam = urlParams.get('slide');
         if (slideParam) {
             const slideNumber = parseInt(slideParam);
-            if (slideNumber >= 1 && slideNumber <= totalSlides) {
-                currentSlide = slideNumber;
+            const slideIndex = activeSlides.indexOf(slideNumber);
+            if (slideIndex !== -1) {
+                currentIndex = slideIndex;
                 updateSlide();
             }
         }
